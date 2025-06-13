@@ -1,6 +1,34 @@
 // Récupération du formulaire
 const loginForm = document.getElementById('login-form');
 
+// Fonction pour vérifier le statut de connexion
+function checkLoginStatus() {
+    const token = localStorage.getItem('token');
+    const loginLink = document.querySelector('nav li a[href="login.html"]');
+    
+    if (token) {
+        // Si connecté, changer le texte en "logout"
+        loginLink.textContent = 'logout';
+        loginLink.href = '#';
+        loginLink.addEventListener('click', handleLogout);
+    } else {
+        // Si déconnecté, garder le texte "login"
+        loginLink.textContent = 'login';
+        loginLink.href = 'login.html';
+        loginLink.removeEventListener('click', handleLogout);
+    }
+}
+
+// Gérer la déconnexion
+function handleLogout(e) {
+    e.preventDefault();
+    localStorage.removeItem('token');
+    window.location.href = 'index.html';
+}
+
+// Vérifier le statut de connexion au chargement de la page
+document.addEventListener('DOMContentLoaded', checkLoginStatus);
+
 // Gestion de la soumission du formulaire
 loginForm.addEventListener('submit', async (event) => {
     event.preventDefault();
