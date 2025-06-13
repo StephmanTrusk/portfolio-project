@@ -186,3 +186,37 @@ footer nav ul {
 	margin: 2em
 }
 
+/*--- mes modifs ---*/
+
+/*--- filtres ---*/
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.filter-button {
+    padding: 8px 15px;
+    border: 1px solid #1D6154;
+    border-radius: 60px;
+    background: white;
+    color: #1D6154;
+    font-family: 'Syne';
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-button:hover {
+    background: #1D6154;
+    color: white;
+}
+
+.filter-button.active {
+    background: #1D6154;
+    color: white;
+}
+
+/*--- fin filtres ---*/
