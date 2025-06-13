@@ -264,13 +264,25 @@ footer nav ul {
     background-color: #1D6154;
     border: none;
     border-radius: 60px;
-    height: 36px;
+    height: 40px;
     margin-top: 20px;
     cursor: pointer;
+    width: 179px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 #login-form button:hover {
     background-color: #0E2F28;
+}
+
+a:hover {
+    color: #B1663C;
+}
+a {
+	text-decoration: none;
+	color: black;
 }
 
 /*--- fin login ---*/
