@@ -9,6 +9,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 <header>
@@ -30,12 +31,24 @@
 		<article>
 			<h2>Designer d'espace</h2>
 			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
-			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
+			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l'esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
 			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		<div class="portfolio-header">
+			<h2>Mes Projets</h2>
+			<button class="edit-button">
+				<i class="fa-solid fa-pen-to-square"></i>
+				modifier
+			</button>
+		</div>
+		<div class="filters">
+			<button class="filter-button active" data-category="0">Tous</button>
+			<button class="filter-button" data-category="1">Objets</button>
+			<button class="filter-button" data-category="2">Appartements</button>
+			<button class="filter-button" data-category="3">Hôtels & restaurants</button>
+		</div>
 		<div class="gallery">
 			<!-- Les images seront ajoutées dynamiquement ici -->
 		</div>
@@ -55,6 +68,71 @@
 	</section>
 </main>
 
+<div class="modal-container" id="projects-modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h3>Galerie photo</h3>
+    
+    <div class="modal-gallery">
+      <!-- Les projets seront chargés ici -->
+    </div>
+    
+    <hr class="modal-separator">
+    
+    <div class="modal-actions">
+      <button id="add-photo-btn" class="action-btn">Ajouter une photo</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal pour ajouter photo -->
+<div class="modal-container" id="add-photo-modal">
+  <div class="modal-content">
+    <span class="back-modal">&larr;</span>
+    <span class="close-modal">&times;</span>
+    <h3>Ajout photo</h3>
+    
+    <form id="add-photo-form">
+      <div class="photo-upload-container">
+        <div id="photo-preview">
+          <i class="far fa-image"></i>
+          <label for="photo-upload" class="photo-upload-label">+ Ajouter photo</label>
+          <input type="file" id="photo-upload" name="image" accept="image/*" required>
+          <p class="upload-info">jpg, png : 4mo max</p>
+        </div>
+        <img id="preview-image" src="" alt="">
+      </div>
+      
+      <!-- Message d'erreur de la page de connexion -->
+      <div class="form-error-message" id="photo-error-message"></div>
+      
+      <div class="form-group">
+        <label for="photo-title">Titre</label>
+        <input type="text" id="photo-title" name="title" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="photo-category">Catégorie</label>
+        <select id="photo-category" name="category" required>
+          <!-- js modif de la liste des catégories -->
+        </select>
+      </div>
+      
+      <hr class="modal-separator">
+      
+      <div class="modal-actions">
+        <button type="submit" id="validate-photo-btn" class="action-btn">Valider</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!--mode édition -->
+<div class="edit-banner">
+  <i class="fas fa-edit"></i>
+  <span>Mode édition</span>
+</div>
+
 <footer>
 	<nav>
 		<ul>
@@ -62,7 +140,8 @@
 		</ul>
 	</nav>
 </footer>
-<script src="./script.js"></script>
-<script src="./login.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
+<script src="./script.js" defer></script>
+<script src="./login.js" defer></script>
 </body>
 </html>
