@@ -335,6 +335,9 @@ a {
     color: #000;
     padding: 0;
     margin-left: 20px;
+    position: relative;
+    bottom: 12px;
+    right: 15px;
 }
 
 .edit-button i {
